@@ -1,3 +1,35 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "materialize/components/color-variables";
+$primary-color: color("indigo", "lighten-2") !default;
+$secondary-color: color("deep-orange", "lighten-2") !default;
+
+.title {
+	text-transform: uppercase;
+	font-size: 2em;
+	color: $primary-color;
+}
+
+.title a {
+	color: $primary-color;
+	transition: color 0.2s;
+	&:hover {
+		color: $secondary-color;
+
+	}
+}
+
+.date {
+	color: $secondary-color;
+	font-size: 0.75em;
+}
+
+.article {
+	padding-bottom: 5%;
+}
+
+.btn-flat {
+	padding: 0 4px !important;
+}

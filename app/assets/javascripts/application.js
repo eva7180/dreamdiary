@@ -14,5 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
+//= require materialize-sprockets
 //= require_tree .
 
+document.addEventListener('turbolinks:load', function () {
+    M.updateTextFields();
+    M.textareaAutoResize($('#body'));
+});

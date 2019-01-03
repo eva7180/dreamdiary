@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :articles
   
-  root 'articles#index'
+  root 'articles#landing_page'
 end

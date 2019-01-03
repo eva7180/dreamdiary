@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  def landing_page
+    @featured_articles = Article.last(3)
+  end
+
   # GET /articles
   # GET /articles.json
   def index
