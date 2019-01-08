@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="article">
-	<p class="title">
+	<p class="dream-title">
 	  <%= @article.title %>
 	</p>
 	
@@ -14,6 +14,22 @@
 	</p>
 </div>
 
-<%= link_to 'Edit', edit_article_path(@article), class: "btn-flat" %> |
-<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-flat" %> |
+<%= link_to 'Edit Dream', edit_article_path(@article), class: "btn-flat" %> |
+<%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-flat" %> |
 <%= link_to 'Back', root_path, class: "btn-flat" %>
+
+<div class="comments">
+	<h5>Comments:</h5>
+	<ul class="collection">
+		<% @article.comments.each do |comment| %>
+	    <li class="collection-item avatar">
+	    	<i class="material-icons circle indigo lighten-3">person</i>
+	      <span class="title"><%= comment.title %></span>
+	      <p><%= comment.comment %></p>
+	      <p class="date"><%= comment.created_at %></p>
+	    </li>
+	  <% end %>
+	</ul>
+</div>
+
+<%= render :partial => 'comments/form', :locals => {:comment => new_comment} %>

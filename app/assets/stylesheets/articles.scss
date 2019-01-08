@@ -6,13 +6,13 @@
 $primary-color: color("indigo", "lighten-2") !default;
 $secondary-color: color("deep-orange", "lighten-2") !default;
 
-.title {
+.dream-title {
 	text-transform: uppercase;
 	font-size: 2em;
 	color: $primary-color;
 }
 
-.title a {
+.dream-title a {
 	color: $primary-color;
 	transition: color 0.2s;
 	&:hover {
