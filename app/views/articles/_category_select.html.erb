@@ -1,0 +1,8 @@
+<h1> Pick a category: </h1>
+
+<%= form_for @article do |f| %>
+	<%= f.hidden_field :article_id, value: @article.id %>
+  <%= f.number_field :category_id %>
+
+  <%= f.submit %>
+<% end %>

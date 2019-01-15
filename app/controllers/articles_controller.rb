@@ -2,13 +2,13 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def landing_page
-    @featured_articles = Article.last(3)
+    @featured_articles = Article.date_desc.first(3)
   end
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.date_desc
   end
 
   # GET /articles/1
@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.category_ids = params[:article][:category_ids]
 
     respond_to do |format|
       if @article.save
@@ -44,6 +45,8 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    @article.category_ids = params[:article][:category_ids]
+
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }

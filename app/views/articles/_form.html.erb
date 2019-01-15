@@ -22,6 +22,12 @@
     <%= form.label :body %>
     <%= form.text_area :body, id: "body", class: "materialize-textarea" %>
   </div>
+  
+  <div class="input-field">
+    <%= form.label "Select tags for this dream" %>
+    <%= form.select :category_ids, Category.all.collect { |c| [ c.name, c.id ] }, {include_blank: true}, { multiple: true } %>
+
+  </div>
 
   <div class="actions">
     <%= form.submit class: "btn" %>

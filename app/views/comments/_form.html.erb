@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input-field">
+    <i class="material-icons prefix">mode_edit</i>
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="input-field">
+    <i class="material-icons prefix">mode_edit</i>
     <%= form.label :comment %>
-    <%= form.text_area :comment %>
+    <%= form.text_area :comment, id: "comment", class: "materialize-textarea" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn"%>
   </div>
 <% end %>

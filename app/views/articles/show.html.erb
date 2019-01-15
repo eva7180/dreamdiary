@@ -8,10 +8,15 @@
 	<p class="date">
 		<%= @article.created_at %>
 	</p>
+
+	<% @article.category_ids.each do |id| %>
+		<div class="chip"><%= Category.find(id).name %></div>
+	<% end %>
 	
 	<p class="body">
 	  <%= @article.body %>
 	</p>
+
 </div>
 
 <%= link_to 'Edit Dream', edit_article_path(@article), class: "btn-flat" %> |

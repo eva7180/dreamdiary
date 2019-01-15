@@ -2,6 +2,9 @@
 	<div class="article">
 		<p class="dream-title"><%= link_to article.title, article %></p>
 		<p class="date"><%= article.created_at %></p>
+		<% article.category_ids.each do |id| %>
+			<div class="chip"><%= Category.find(id).name %></div>
+		<% end %>
 		<p class="body"><%= truncate(article.body, length: 250, separator: ' ') %></p>
 		<%= link_to "Read On", article, class: "btn" %>
 	</div>
